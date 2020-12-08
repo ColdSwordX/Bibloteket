@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bibloteket
 {
-    class Bibliotek
+    public class Bibliotek
     {
         public string biblioteksNavn;
         public Laaner laaner;
