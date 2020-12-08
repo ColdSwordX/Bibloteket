@@ -8,16 +8,20 @@ namespace Bibloteket
 {
     public class Laaner
     {
+        private static int laanerCount = 0;
         private int laanerNummer;
         private string navn;
-
-        public Laaner(int _laanerNummer, string _navn)
+        /// <summary>
+        /// Tager en string ind som parametor, hvor den der efter laver en låner med nummer og navn.
+        /// </summary>
+        /// <param name="_navn"></param>
+        public Laaner(string _navn)
         {
-            laanerNummer = _laanerNummer;
+            laanerNummer = laanerCount;
             navn = _navn;
-            Console.WriteLine($"Der er blevet oprettet en låner med navn: {_navn} og nummer: {_laanerNummer}");
+            Console.WriteLine($"Der er blevet oprettet en låner med navn: {_navn} og nummer: {laanerNummer}");
+            laanerCount++;
         }
-
         public int LaanerNummber
         {
             get

@@ -14,22 +14,27 @@ namespace Bibloteket
         public Bibliotek(string navn)
         {
             biblioteksNavn = navn;
+            OpretLaaner("Jens");
+            OpretLaaner("Gerhard");
+            OpretLaaner("Lucas");
+            OpretLaaner("Benjamin");
+            OpretLaaner("Mike");
         }
 
-        public string HentBibliotek()
+        public string HentBibliotek()//Henter biblioteks informaton.
         {
             string temp = "Velkommen til " + biblioteksNavn;
             return temp;
         }
-        public void OpretLaaner(int laanerNummber, string laanerNavn)
+        public void OpretLaaner(string laanerNavn)//Opretter en låner.
         {
-            laanerList.Add( new Laaner(laanerNummber, laanerNavn));
+            laanerList.Add( new Laaner(laanerNavn));
         }
-        public string HentLaaner( Laaner laaner)
+        public string HentLaaner( Laaner laaner)//Udskriver alt information om en låner objeckt.
         {
             return $"Lånernummer: {laaner.LaanerNummber} - Navn: {laaner.Navn} er låner hos: {biblioteksNavn}";
         }
-        public string HentAlleLaanere()
+        public string HentAlleLaanere()//Henter alle lånere fra listen som er tilgængelig over alt i klassen.
         {
             string allelaanere = "";
 
