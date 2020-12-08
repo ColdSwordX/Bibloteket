@@ -9,7 +9,7 @@ namespace Bibloteket
     public class Bibliotek
     {
         public string biblioteksNavn;
-        public Laaner laaner;
+        public List<Laaner> laanerList = new List<Laaner>();
 
         public Bibliotek(string navn)
         {
@@ -23,11 +23,22 @@ namespace Bibloteket
         }
         public void OpretLaaner(int laanerNummber, string laanerNavn)
         {
-            laaner = new Laaner(laanerNummber, laanerNavn);
+            laanerList.Add( new Laaner(laanerNummber, laanerNavn));
         }
-        public string HentLaaner()
+        public string HentLaaner( Laaner laaner)
         {
             return $"Lånernummer: {laaner.LaanerNummber} - Navn: {laaner.Navn} er låner hos: {biblioteksNavn}";
+        }
+        public string HentAlleLaanere()
+        {
+            string allelaanere = "";
+
+            foreach (Laaner laaner in laanerList)
+            {
+                allelaanere += $"{HentLaaner(laaner)} \n";
+            }
+
+            return allelaanere;
         }
     }
 }

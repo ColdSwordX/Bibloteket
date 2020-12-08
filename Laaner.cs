@@ -15,6 +15,7 @@ namespace Bibloteket
         {
             laanerNummer = _laanerNummer;
             navn = _navn;
+            Console.WriteLine($"Der er blevet oprettet en låner med navn: {_navn} og nummer: {_laanerNummer}");
         }
 
         public int LaanerNummber

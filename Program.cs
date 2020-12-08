@@ -13,7 +13,9 @@ namespace Bibloteket
         {
             Console.WriteLine(bibliotek.HentBibliotek() + " " + DateTime.Now);
             bibliotek.OpretLaaner(1, "Jens");
-            bibliotek.HentLaaner();
+            bibliotek.OpretLaaner(2, "Gerhard");
+            bibliotek.OpretLaaner(3, "Lucas");
+            Console.WriteLine(bibliotek.HentAlleLaanere());
             Console.ReadKey();
         }
     }
