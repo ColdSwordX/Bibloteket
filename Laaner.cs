@@ -6,22 +6,26 @@ using System.Threading.Tasks;
 
 namespace Bibloteket
 {
-    public class Laaner
+    public class Laaner : Person
     {
         private static int laanerCount = 0;
         private int laanerNummer;
-        private string navn;
         /// <summary>
         /// Tager en string ind som parametor, hvor den der efter laver en låner med nummer og navn.
         /// </summary>
         /// <param name="_navn"></param>
-        public Laaner(string _navn)
+        public Laaner(string _navn, string _email)
         {
             laanerNummer = laanerCount;
-            navn = _navn;
-            Console.WriteLine($"Der er blevet oprettet en låner med navn: {_navn} og nummer: {laanerNummer}");
+            Navn = _navn;
+            Email = _email;
+            Console.WriteLine($"Der er blevet oprettet en låner med nummer: {laanerNummer} og navn: {Navn} samt en email: {Email}");
             laanerCount++;
         }
+        /// <summary>
+        /// Her bliver det nummer som låneren har sat, 
+        /// samt det vil blive auto incrementet hvergang der bliver lavet en låner.
+        /// </summary>
         public int LaanerNummber
         {
             get
@@ -29,7 +33,5 @@ namespace Bibloteket
                 return laanerNummer;
             }
         }
-        public string Navn
-        { get { return navn; } }
     }
 }

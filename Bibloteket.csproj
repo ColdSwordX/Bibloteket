@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Bibliotek.cs" />
     <Compile Include="Laaner.cs" />
+    <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

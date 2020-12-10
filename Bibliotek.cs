@@ -14,11 +14,11 @@ namespace Bibloteket
         public Bibliotek(string navn)
         {
             biblioteksNavn = navn;
-            OpretLaaner("Jens");
-            OpretLaaner("Gerhard");
-            OpretLaaner("Lucas");
-            OpretLaaner("Benjamin");
-            OpretLaaner("Mike");
+            OpretLaaner("Jens","jens@jens.email");
+            OpretLaaner("Gerhard", "Gerhard@Gerhard.email");
+            OpretLaaner("Lucas", "Lucas@Lucas.email");
+            OpretLaaner("Benjamin", "Benjamin@Benjamin.email");
+            OpretLaaner("Mike", "Mike@Mike.email");
         }
 
         public string HentBibliotek()//Henter biblioteks informaton.
@@ -26,13 +26,19 @@ namespace Bibloteket
             string temp = "Velkommen til " + biblioteksNavn;
             return temp;
         }
-        public void OpretLaaner(string laanerNavn)//Opretter en låner.
+        /// <summary>
+        /// Bruges når der skal oprette en låner i systemet.
+        /// Låner bliver automatisk givet et lånernummer.
+        /// </summary>
+        /// <param name="laanerNavn"></param>
+        /// <param name="email"></param>
+        public void OpretLaaner(string laanerNavn, string email)//Opretter en låner.
         {
-            laanerList.Add( new Laaner(laanerNavn));
+            laanerList.Add( new Laaner(laanerNavn,email));
         }
         public string HentLaaner( Laaner laaner)//Udskriver alt information om en låner objeckt.
         {
-            return $"Lånernummer: {laaner.LaanerNummber} - Navn: {laaner.Navn} er låner hos: {biblioteksNavn}";
+            return $"Lånernummer: {laaner.LaanerNummber} - Navn: {laaner.Navn} & email {laaner.Email}\t er låner hos: {biblioteksNavn}";
         }
         public string HentAlleLaanere()//Henter alle lånere fra listen som er tilgængelig over alt i klassen.
         {

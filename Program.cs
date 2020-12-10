@@ -14,10 +14,8 @@ namespace Bibloteket
             bool running = true;
             while (running)
             {
-                Console.Clear();
                 UdskrivMenu();
                 char choosen = char.ToUpper( Console.ReadKey().KeyChar);
-                Console.Clear();
                 switch (choosen)
                 {
                     case 'V'://Se bibliotek's navn og data
@@ -25,13 +23,19 @@ namespace Bibloteket
                         break;
                     case 'O'://Opret en ny Låner
                         Console.WriteLine("Hvad hedder den nye låner?: ");
-                        bibliotek.OpretLaaner(Console.ReadLine());
+                        string navn = Console.ReadLine();
+                        Console.WriteLine("Og hvad er låner's Email?: ");
+                        string email = Console.ReadLine();
+                        bibliotek.OpretLaaner(navn, email);
                         break;
                     case 'U'://Udskriv alle brugere.
                         Console.WriteLine(bibliotek.HentAlleLaanere());
                         break;
                     case 'X'://Afslutter loopen.
                         running = false;
+                        break;
+                    default:
+                        Console.WriteLine($"Du trykkede på:\t\t {choosen} \t som ikke er en del af menuen. prøv igen.");
                         break;
                 }
                 Console.WriteLine("Tryk en knap for at gå videre ");
